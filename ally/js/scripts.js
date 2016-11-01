@@ -1,5 +1,5 @@
 var main = function () {
-  console.log("JavaScript with jQuery works!");
+  console.log($('#header .page-header').text());
 };
 
 $(main());
