@@ -1,3 +1,11 @@
-p.testBold {
-			font-weight: bold;
-			}
+#footer {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1em;
+  padding: 0.25em;
+  width: 100%;
+
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: #777;
+}
