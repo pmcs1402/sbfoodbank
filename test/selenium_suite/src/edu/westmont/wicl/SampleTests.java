@@ -2,6 +2,9 @@ package edu.westmont.wicl;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,12 +17,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class SampleTests {
 	
+	static Boolean testProduction = true;
+	static Boolean testStaging = true;
 	static WebDriver driver;
+	static List<String> addresses = new ArrayList<String>();
 
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		addresses.add("http://localhost:8080");
+		
+		if(testProduction){
+			addresses.add("http://djp3.westmont.edu/ally/ally/");
+		}
+		if(testStaging){
+			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
+		}
+		
 		System.setProperty("webdriver.chrome.driver", "/Users/djp3/git/sbfoodbank/test/chromedriver");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
@@ -38,6 +55,16 @@ public class SampleTests {
 
 	@After
 	public void tearDown() throws Exception {
+	}
+	
+	@Test
+	public void testSystemUp() {
+		
+		for(String address:addresses){
+			driver.get(address);
+        
+			assertTrue(driver.getTitle().contains("Ally"));
+		}
 	}
 
 	@Test
@@ -60,9 +87,6 @@ public class SampleTests {
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
 
-        //System.out.println("Page title is: " + driver.getTitle());
-        
-        // Google's search is rendered dynamically with JavaScript.
         // Wait for the page to load, timeout after 10 seconds
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
@@ -72,9 +96,6 @@ public class SampleTests {
         
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
-
-        // Should see: "cheese! - Google Search"
-        //System.out.println("Page title is: " + driver.getTitle());
 	}
 
 }
