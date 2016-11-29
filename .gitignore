@@ -1,0 +1,8 @@
+#The canonical place for the chromedriver executable
+test/chromedriver
+
+#Individual workspace settings
+.editorconfig
+
+#Temporary editor buffers for vi
+*.swp
