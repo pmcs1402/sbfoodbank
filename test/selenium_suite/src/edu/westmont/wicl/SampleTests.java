@@ -22,14 +22,16 @@ public class SampleTests {
 	
 	static Boolean testProduction = true;
 	static Boolean testStaging = true;
+	static Boolean testLocal = true;
 	static WebDriver driver;
 	static List<String> addresses = new ArrayList<String>();
 
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		addresses.add("http://localhost:8080");
-		
+		if(testLocal){
+			addresses.add("http://localhost:8080");
+		}
 		if(testProduction){
 			addresses.add("http://djp3.westmont.edu/ally/ally/");
 		}
