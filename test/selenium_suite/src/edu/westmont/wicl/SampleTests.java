@@ -1,5 +1,12 @@
 package edu.westmont.wicl;
 
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,18 +14,42 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Selenium2Example  {
-    public static void main(String[] args) {
-    	System.setProperty("webdriver.chrome.driver", "/Users/djp3/git/sbfoodbank/test/chromedriver");
+public class SampleTests {
+	
+	static WebDriver driver;
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		System.setProperty("webdriver.chrome.driver", "/Users/djp3/git/sbfoodbank/test/chromedriver");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
+	}
 
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		driver.quit();
+	}
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testGoogleCheeseQuery() {
         // And now use this to visit Google
         driver.get("http://www.google.com");
+        
         // Alternatively the same thing can be done like this
         // driver.navigate().to("http://www.google.com");
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Google"));
 
         // Find the text input element by its name
         WebElement element = driver.findElement(By.name("q"));
@@ -29,8 +60,7 @@ public class Selenium2Example  {
         // Now submit the form. WebDriver will find the form for us from the element
         element.submit();
 
-        // Check the title of the page1G
-        System.out.println("Page title is: " + driver.getTitle());
+        //System.out.println("Page title is: " + driver.getTitle());
         
         // Google's search is rendered dynamically with JavaScript.
         // Wait for the page to load, timeout after 10 seconds
@@ -39,11 +69,12 @@ public class Selenium2Example  {
                 return d.getTitle().toLowerCase().startsWith("cheese!");
             }
         });
+        
+        // Check the title of the page
+        assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 
         // Should see: "cheese! - Google Search"
-        System.out.println("Page title is: " + driver.getTitle());
-        
-        //Close the browser
-        driver.quit();
-    }
+        //System.out.println("Page title is: " + driver.getTitle());
+	}
+
 }
