@@ -30,7 +30,7 @@ public class SampleTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		if(testLocal){
-			addresses.add("http://localhost:8080");
+			addresses.add("http://localhost:8888");
 		}
 		if(testProduction){
 			addresses.add("http://djp3.westmont.edu/ally/ally/");
@@ -39,7 +39,7 @@ public class SampleTests {
 			addresses.add("http://djp3.westmont.edu/ally_staging/ally/");
 		}
 		
-		System.setProperty("webdriver.chrome.driver", "../chromedriver");
+		System.setProperty("webdriver.chrome.driver", "../chromedriver.exe");
         // Create a new instance of the Google driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -69,7 +69,7 @@ public class SampleTests {
 		}
 	}
 
-	@Test
+	@Test/*
 	public void testGoogleCheeseQuery() {
         // And now use this to visit Google
         driver.get("http://www.google.com");
@@ -99,5 +99,22 @@ public class SampleTests {
         // Check the title of the page
         assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
 	}
+	*/
 
+	// test for find food bank button on index page.
+	
+	public void testFoodbankQuery(){
+		//visit our web index page
+		driver.get("file:///C:/Users/cholhyun/workspace/sbfoodbank/ally/index.html");
+		
+		//check title of the page
+		assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
+		
+		//Find the element by name.
+		WebElement element = driver.findElement(By.name("find_food_btn"));  // where can I find element name ?
+		
+		element.click(); // click the element what i want, and I set element name as name
+													// or element.click() 
+		assertTrue(driver.getTitle().equals("Ally - Find Food")); // check page name for right one  or not.
+	}
 }
