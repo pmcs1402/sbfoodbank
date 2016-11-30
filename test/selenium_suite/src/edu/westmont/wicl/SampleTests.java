@@ -69,7 +69,7 @@ public class SampleTests {
 		}
 	}
 
-	@Test/*
+	@Test
 	public void testGoogleCheeseQuery() {
         // And now use this to visit Google
         driver.get("http://www.google.com");
@@ -97,15 +97,15 @@ public class SampleTests {
         });
         
         // Check the title of the page
-        assertTrue(driver.getTitle().equals("Cheese! - Google Search"));
+        assertTrue(driver.getTitle().startsWith("Cheese! - Google"));
 	}
-	*/
+	
 
 	// test for find food bank button on index page.
-	
+	@Test
 	public void testFoodbankQuery(){
 		//visit our web index page
-		driver.get("file:///C:/Users/cholhyun/workspace/sbfoodbank/ally/index.html");
+		driver.get("http://localhost:8888/index.html");
 		
 		//check title of the page
 		assertTrue(driver.getTitle().equals("Ally - Santa Barbara FoodBank"));
