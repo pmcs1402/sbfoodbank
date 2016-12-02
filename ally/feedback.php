@@ -14,28 +14,29 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-				<h1>						<img src="img/\logos\black_and_white\black_on_clear.png" width="130" height="150"/>
- <small>About</small></h1>	
+				<h3>Feedback</h3>
 			</div>
 		</div>
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-					<p class="lead">Ally is for people who want to help others find food resources in Santa Barbara.</p>
+		Hello From Ally! Santa Barbara's Helping Hand! Below, Please Enter your name, email, and your feedback and we will get back to you as soon as possible!<br><br>
+		<form action="URL to form script" method="POST">
 
-					<p>This app is made in a partnership between Westmont Computer Science Department and the Santa Barbara Foodbank.</p>
-				</div>
-			</div>
-    		<div class="row">
-				<div class="col-sm-6">
-					<a class="btn btn-default btn-lg" href="http://www.foodbanksbc.org" role="button">
-						<img src="img/SBFB_logo_tight_200_165.png"/>
-					</a>
-				</div>
-				<div class="col-sm-6">
-					<a class="btn btn-default btn-lg" href="http://djp3.westmont.edu/WICL" role="button">
-						<img src="img/WICL_logo_tight_200_92.png"/>
-					</a>
+			Your name: <br>
+			<input type="text" name="realname"><br>
+			<br>
+
+			Your email: <br>
+			<input type="text" name="email"><br>
+			<br>
+
+			Your comments: <br>
+			<textarea name="comments" rows="15" cols="50"></textarea><br><br>
+
+			<input type="submit" value="Submit">
+			 
+			</form>
 				</div>
 			</div>
 		</div>
@@ -43,20 +44,12 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="row-fluid text-center">
-					<div class="col-sm-6">
-						<a class="btn btn-default btn-lg" href="index.html" role="button">
-							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					<div class="col-xs-12">
+						<a class="btn btn-default btn-lg" href="index.php" role="button">
+							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
 							Home
 						</a>
 					</div>
-					<div class="col-sm-6">
-						<a class="btn btn-default btn-lg" href="feedback.html" role="button">
-							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-							Feedback
-						</a>
-					</div>
-				</div>
-			</div>
 		</footer>
 
 		<!-- Load javascript at the end for speed -->

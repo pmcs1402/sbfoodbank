@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 		<meta name="mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
-		<title>Ally - About</title>
+		<title>Ally - Share</title>
 		<meta name="description" content="An app to help people find food in Santa Barbara"/>
 		<meta name="author" content="Westmont Inspired Computing Lab"/>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -14,25 +14,30 @@
 	<body>
 		<div class="container">
 			<div class="page-header">
-				<h1><img src="img/\logos\black_and_white\black_on_clear.png" width="130" height="150"/> <small>Feedback</small></h1>
+				<h3>Share Information</h3>
 			</div>
 		</div>
 		<div class="container text-center">
 			<div class="row-fluid">
 				<div class="col-md-12">
-		Hello From Ally! Santa Barbara's Helping Hand! Below, Please Enter your name, email, and your feedback and we will get back to you as soon as possible!<br><br>
+		<!-- In the body the user will be given the option to send the desired person either a text or an email. In either that text or email, it will contain the address of the destination, and directions from where they are, as well as the times of operation of the sent destination, -->
 		<form action="URL to form script" method="POST">
 
-			Your name: <br>
-			<input type="text" name="realname"><br>
+			Phone Number: <br>
+			<input type="text" name="phoneNumber"><br>
 			<br>
 
-			Your email: <br>
+			Or: <br><br>
+
+			Email: <br>
 			<input type="text" name="email"><br>
 			<br>
 
-			Your comments: <br>
-			<textarea name="comments" rows="15" cols="50"></textarea><br><br>
+			Please Select Destination to be Sent: <br>
+			<textarea name="destination" rows="5" cols="30"></textarea><br><br>
+
+			Add Comments: <br>
+			<textarea name="comments" rows="10" cols="30"></textarea><br><br>
 
 			<input type="submit" value="Submit">
 			 
@@ -44,12 +49,20 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="row-fluid text-center">
-					<div class="col-sm-12">
-						<a class="btn btn-default btn-lg" href="index.html" role="button">
-							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					<div class="col-xs-6">
+						<a class="btn btn-default btn-lg" href="index.php" role="button">
+							<img class="bw_logo_button" src="img/\logos\black_and_white\black_on_clear.png"/>
 							Home
 						</a>
 					</div>
+					<div class="col-xs-6">
+						<a class="btn btn-default btn-lg" href="feedback.php" role="button">
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+							Feedback
+						</a>
+					</div>
+				</div>
+			</div>
 		</footer>
 
 		<!-- Load javascript at the end for speed -->
